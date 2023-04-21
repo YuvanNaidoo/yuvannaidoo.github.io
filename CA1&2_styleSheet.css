@@ -1,0 +1,33 @@
+body {
+
+}
+
+h1 {
+  font-family: "Lucida Console";
+  font-size: 120px;
+  padding-bottom: 25px;
+  font-weight:bold;
+  background-color: #3399ff;
+  color: #3399ff;
+  text-align: center;
+  text-shadow: 5px 5px black;
+  border-style: inset;
+  border-radius: 75px
+}
+
+h2 {
+  font-family: "Lucida Console";
+  font-size: 30px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  color: black;
+}
+
+h3 {
+  font-family: "Lucida Console";
+  font-size: 20px;
+  text-align: left;
+  text-decoration: underline;
+}

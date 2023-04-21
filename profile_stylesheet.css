@@ -1,0 +1,14 @@
+body {
+  background-image: url(images/headerBackground.jpg);
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.addPadding {
+  padding: 5%;
+}
+
+p {
+  text-overflow: ellipsis;
+}

@@ -1,27 +1,694 @@
-#cv_headingBanner{
-  height: 25vh;
-  background-color: grey;
-}
-
-#cv_profilePic_parent{
-  background-color: rgb(43, 43, 43);
-}
-
-#cv_profilePic_border{
+.customPosition {
   position: absolute;
-  background-color: black;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0px 0px 10px black;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#cv_profilePicture{
+.fadeInNormalQuick {
+  animation: faderInNormal 2s linear 0s 1;
+}
+
+.fadeInNormalSlow {
+  animation: faderInNormal 4s linear 0s 1;
+}
+
+.fadeInDelayed {
+  animation: faderInDelayed 4s linear 0s 1;
+}
+
+@keyframes faderInNormal {
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+
+@keyframes faderInDelayed {
+  0% {opacity: 0;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+#particleSpace {
+  width: 35%;
+  height: 100%;
+  left: 0%;
+  background-color: black;
+  background-image: url(images/ParticleBackground.png);
+  background-size: cover;
+  position: absolute;
+}
+
+#landingMainShadow {
+  width: 50%;
+  height: 100%;
+  left: 0%;
+  background-image: url(images/ParticleShadow.png);
+  background-size: cover;
+  position: absolute;
+}
+
+#landingSpace {
+  background-color: white;
+  height: 100%;
+  width: 75%;
+  right: 0%;
+  position: absolute;
+  background-size: cover;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+}
+
+#welcome {
+  height: 100%;
+}
+
+#profilePic {
+  background-image: url(images/ProfilePic.jpg);
+  width: 35%;
+  height: 45%;
+  right: 0%;
+  top: 5%;
+  background-size: cover;
+  clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 20% 100%);
+}
+
+#logo {
+  background-image: url(images/Logo000.png);
+  overflow: visible;
+  left: 9%;
+  top: 50%;
+  width: 91%;
+  height: 22%;
+}
+
+#subLogo {
+  background-color: white;
+  overflow: visible;
+  left: 9%;
+  top: 72%;
+  width: 100%;
+  height: 4%;
+}
+.subLogoText {
+  font-size: 5vmin;
+  color: black;
+  font-family: Consolas;
+  right: 9%;
+  top: 0%;
+}
+
+#subLogoText00 {
+  animation: subLogoFader00 12s linear 0s infinite;
+}
+#subLogoText01 {
+  animation: subLogoFader01 12s linear 0s infinite;
+}
+#subLogoText02 {
+  animation: subLogoFader02 12s linear 0s infinite;
+}
+#subLogoText03 {
+  animation: subLogoFader03 12s linear 0s infinite;
+}
+#subLogoText04 {
+  animation: subLogoFader04 12s linear 0s infinite;
+}
+@keyframes subLogoFader00 {
+  0% {opacity: 1;}
+  6% {opacity: 1;}
+  9% {opacity: 0;}
+  91% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes subLogoFader01 {
+  0% {opacity: 0;}
+  11% {opacity: 0;}
+  20% {opacity: 1;}
+  26% {opacity: 1;}
+  29% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes subLogoFader02 {
+  0% {opacity: 0;}
+  31% {opacity: 0;}
+  40% {opacity: 1;}
+  46% {opacity: 1;}
+  49% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes subLogoFader03 {
+  0% {opacity: 0;}
+  51% {opacity: 0;}
+  60% {opacity: 1;}
+  66% {opacity: 1;}
+  69% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes subLogoFader04 {
+  0% {
+    opacity: 0;
+    font-size: 0vmin;
+  }
+  69%{font-size: 0vmin;}
+  70% {
+    opacity: 0;
+    font-size: 5vmin;
+  }
+  80% {opacity: 1;}
+  86% {opacity: 1;}
+  89% {
+    opacity: 0;
+    font-size: 5vmin;
+  }
+  90% {font-size: 0vmin;}
+  100% {
+    opacity: 0;
+    font-size: 0vmin;
+  }
+}
+
+#projectInteractive {
+  width: 30%;
+  height: 100%;
+  right: 0%;
+  background-color: black;
+  background-image: url(images/ProjectInteractive_Background.png);
+  overflow: visible;
+  background-size: cover;
+  top: 100%;
+}
+
+#ProjectInteractiveShadow {
+  width: 30%;
+  height: 100%;
+  top: 100%;
+  right: 0%;
+  background-image: url(images/ProjectInteractive_Shadow.png);
+  background-size: cover;
+  position: absolute;
+}
+
+#projectsSpace {
+  width: 80%;
+  height: 100%;
+  background-color: white;
+  top: 100%;
+  left: 0%;
+  position: absolute;
+  clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+#activeSpace {
+  background-color: white;
+  height: 100%;
+}
+
+#pageHeading {
+  background-color: white;
+  background-image: url(images/ProjectsLogo.png);
+  height: 10%;
+  width: 50%;
+  left: 25%;
+  top: 1%;
+}
+
+.project {
+  width: 85%;
+  height: 20%;
+  background-color: white;
+}
+
+.projectHeadingText {
+  color: black;
+  font-family: Consolas;
+  font-size: 2vmin;
+  font-weight: bold;
+}
+
+#project0 {
+  top: 12%;
+  left: 5%;
+}
+#project1 {
+  top: 33%;
+  left: 5%;
+}
+#project2 {
+  top: 54%;
+  left: 5%;
+}
+#project3 {
+  top: 75%;
+  left: 5%;
+}
+
+.pImages {
+  background-color: orange;
+  height: 100%;
+  width: 30%;
+  background-size: cover;
+  background-position: top;
+}
+
+@keyframes pImagesHoverText {
+  0% {font-size: 0vmin;}
+  50% {font-size: 4vmin;}
+  100% {font-size: 0vmin;}
+}
+
+#pImage0 {
+  left: 0%;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  background-image: url(images/pImage_00.png);
+}
+
+#pImage1 {
+  right: 0%;
+  clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%);
+  background-image: url(images/pImage_01.png);
+}
+
+#pImage2 {
+  left: 0%;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  background-image: url(images/pImage_02.png);
+}
+
+#pImage3 {
+  right: 0%;
+  clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%);
+  background-image: url(images/pImage_03.png);
+}
+
+.pHeading {
+  background-color: white;
+  width: 35%;
+  height: 15%;
+}
+
+#pHeading0 {
+  left: 31%;
+  top: 5%;
+}
+
+#pHeading1 {
+  right: 31%;
+  top: 5%;
+}
+
+#pHeading2 {
+  left: 31%;
+  top: 5%;
+}
+
+#pHeading3 {
+  right: 31%;
+  top: 5%;
+}
+
+.pText {
+  width: 65%;
+  height: 70%;
+  background-color: white;
+  color: black;
+  font-size: 1.8vmin;
+  font-family: Consolas;
+  font-weight: normal;
+}
+
+#pText0 {
+  left: 31%;
+  top: 25%;
+}
+
+#pText1 {
+  right: 31%;
+  top: 25%;
+}
+
+#pText2 {
+  left: 31%;
+  top: 25%;
+}
+
+#pText3 {
+  right: 31%;
+  top: 25%;
+}
+
+.pLink:hover {
+  color: orange;
+  font-size: 2vmin;
+}
+
+.innerInteractive {
+  right: 0%;
+  width: 20%;
+  height: 758px;
+  background-color: black;
+  clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  background-image: url(images/InnerInteractive_Background.jpg);
+  background-size: cover;
+}
+
+#p4Link:hover {
+  color: orange;
+}
+
+#MP2FeatureSpace {
+  width: 20%;
+  height: 100%;
+  left: 0%;
+  top: 200%;
+  background-color: black;
+}
+
+#MP2ActiveSpace {
+  width: 90%;
+  height: 100%;
+  right: 0%;
+  top: 200%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%);
+  background-color: white;
+  overflow-y: auto;
+}
+
+#MP2Body {
+  height: 100%;
+  background-color: white;
+  font-family: "Consolas";
+}
+
+#allLocationButtons {
+  left: 3%;
+  height: 87%;
+  width: 20%;
+  bottom: 0%;
+  overflow-y: scroll;
+}
+
+.LocationButton {
+  background-color: #4747d1;
+  color: white;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+  opacity: 50%;
+}
+
+.LocationButton:hover {
+  animation: buttonHover 0.5s linear 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes buttonHover {
+  0% {background-color: #4747d1;
+      color: white;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+      opacity: 50%;}
+  100%{background-color: #ffc34d;
+      color: black;
+      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+      opacity: 100%;}
+}
+
+.LocationButton:not(:hover){
+  animation: buttonoffHover 0.5s linear 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes buttonoffHover {
+  0% {background-color: #ffc34d;
+      color: black;
+      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+      opacity: 50%;}
+  100%{background-color: #4747d1;
+      color: white;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+      opacity: 100%;}
+}
+
+#AuroraLogo {
+  right: 0%;
+  top: 0%;
+  width: 50%;
+  height: 10%;
+  background-image: url(images/AuroraLogo.png);
+  background-size: contain;
+}
+
+#locImage {
+  left: 0%;
+  top: 0%;
   width: 100%;
   height: 100%;
-  border: 2px solid black;
-  border-radius: 50%;
+  background-color: black;
+  background-image: url(images/Aurora.jpg);
+  background-size: cover;
 }
 
-#cv_heading{
-  background-color: purple;
+#LocationSpace {
+  background-color: white;
+  right: 0%;
+  width: 75%;
+  height: 87%;
+  bottom: 0%;
+}
+
+.TextCardLeft {
+  width: 48%;
+  height: 25%;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, .5);
+  overflow-y: auto;
+  overflow-x: auto;
+  text-align: right;
+}
+.TextCardRight {
+  width: 48%;
+  height: 25%;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, .5);
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+#LocationHeading {
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 10%;
+}
+
+#LocationHeadingText {
+  font-family: "Consolas";
+  font-size: 3vmin;
+  bottom: 0%;
+  left: 2%;
+}
+
+#LocationTextCard {
+  left: 1%;
+  top: 11%;
+}
+#LocationText {
+  right: 2%;
+  color: black;
+  font-family: "Consolas";
+  width: 75%;
+}
+
+#ACETextCard {
+  right: 1%;
+  top: 11%;
+}
+#ACEText {
+  left: 2%;
+  color: black;
+  font-family: "Consolas";
+  width: 75%;
+}
+#WeatherTextCard {
+  left: 1%;
+  top: 39%;
+}
+#WeatherText {
+  right: 2%;
+  color: black;
+  font-family: "Consolas";
+  width: 75%;
+}
+
+#SunTextCard {
+  right: 1%;
+  top: 39%;
+}
+#SunText {
+  left: 2%;
+  color: black;
+  font-family: "Consolas";
+  width: 75%;
+}
+
+.FeatureIconLeft {
+  background-color: black;
+  left: 0%;
+  top: 0%;
+  width: 25%;
+  height: 100%;
+  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+  background-size: cover;
+}
+
+.FeatureIconRight {
+  background-color: black;
+  right: 0%;
+  top: 0%;
+  width: 25%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%);
+  background-size: cover;
+}
+
+#LocationFeatureIcon {
+  background-image: url(images/LocationIcon.jpg);
+}
+
+#ACEFeatureIcon {
+  background-image: url(images/AceIcon.jpg);
+}
+
+#WeatherFeatureIcon {
+  background-image: url(images/WeatherIcon.jpg);
+}
+
+#SunFeatureIcon {
+  background-image: url(images/MoonIcon.jpg);
+}
+
+#MP2instructions
+{
+  left: 3%;
+  top: 10%;
+  color: black;
+  font-family: "Consolas";
+}
+
+#MapSpace {
+  bottom: 1%;
+  width: 100%;
+  height: 30%;
+}
+
+#googleMap {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+#ref1 {
+  right: 0%;
+  top: 10%;
+  font-family: "Consolas";
+  font-size: 2vmin;
+}
+
+#ExamProjectSpace {
+  top: 300%;
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
+
+#GlitchWordLogo {
+  top: 0%;
+  right: 0%;
+  width: 30%;
+  height: 10%;
+  background-size: contain;
+  background-image: url(images/GlitchWordsLogo.png);
+  z-index: 5;
+}
+
+#btnProcessWords {
+  right: 10%;
+  bottom: 0%;
+  z-index: 5;
+}
+
+#inputSpace {
+  left: 0%;
+  width: 40%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  background-color: black;
+}
+
+#outputSpace {
+  right: 0%;
+  width: 65%;
+  height: 100%;
+  bottom: 0%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%);
+  background-color: white;
+}
+
+#InputTextSpace {
+  left: 0%;
+  height: 85%;
+  top: 10%;
+  width: 80%;
+  border: none;
+  color: white;
+  background-color: black;
+  font-family:  "Consolas";
+}
+
+#OutputTextSpace {
+  right: 0%;
+  bottom: 40%;
+  height: 49%;
+  width: 95%;
+  border: none;
+  font-family:  "Consolas";
+  overflow-y: scroll;
+}
+
+#ImageOutputSpace {
+  bottom: 0%;
+  width: 100%;
+  height: 40%;
+}
+
+.wordImage {
+  height: 100%;
+  width: 25%;
+  background-color: orange;
+}
+
+#wordImage0 {
+  left: 0%;
+}
+
+#wordImage1 {
+  left: 25%;
+}
+
+#wordImage2 {
+  right: 25%;
+}
+
+#wordImage3 {
+  right: 0%;
+}
+
+#WordInstructions {
+  left: 2%;
+  top: 2%;
+  font-family: "Consolas";
+  color: orange;
+  z-index: 5;
+}
+
+#WordOutputLabel {
+  left: 40%;
+  top: 5%;
+  font-family: "Consolas";
+  color: orange;
+  z-index: 5;
 }
