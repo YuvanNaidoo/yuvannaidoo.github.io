@@ -8,16 +8,84 @@
     --color_p2_0: #FFFFFF; /* White */
 }
 
-/* Reset styles */
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-}
-
-/* Default styles for mobile */
-body {
     font-family: Arial, sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 16.67vh; /* 2/12 of the window height */
+    background-color: var(--color_p0_0);
+    color: var(--color_p2_0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.main-content {
+    width: 100%;
+    height: 83.33vh; /* 10/12 of the window height */
+    display: flex;
+    position: relative;
+    background-color: var(--color_p2_0);
+}
+
+.particle-effect-block {
+    width: 25%; /* 3/12 width of the main section */
+    height: 100%; /* Full height of the main section */
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    will-change: clip-path, box-shadow;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 1); /* Inward shadow */
+}
+
+#particleCanvas {
+    width: 100%; /* Cover the entire rectangle */
+    height: 100%; /* Match the rectangle's dimensions */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Place on top of the red rectangle */
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
 }
 
 
+.text-container {
+    margin-left: 25%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-link {
+    color: var(--color_p1_2);
+    text-decoration: none;
+}
+
+.footer {
+    width: 100%;
+    height: 8.33vh; /* 1/12 of the window height */
+    background-color: var(--color_p1_0);
+    color: var(--color_p2_0);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
