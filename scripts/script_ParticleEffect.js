@@ -67,10 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
             particle.x += particle.speedX;
             particle.y += particle.speedY;
 
-            if (particle.x - particle.radius < 0 || particle.x + particle.radius > particleCanvas.width) {
+            //extended boundry size
+            const extendedBoundry = particle.radius * 4;
+
+            if (particle.x - particle.radius < -extendedBoundry || particle.x + particle.radius > particleCanvas.width + extendedBoundry) {
                 particle.speedX *= -1;
             }
-            if (particle.y - particle.radius < 0 || particle.y + particle.radius > particleCanvas.height) {
+            if (particle.y - particle.radius < -extendedBoundry || particle.y + particle.radius > particleCanvas.height + extendedBoundry) {
                 particle.speedY *= -1;
             }
         });

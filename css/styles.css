@@ -1,6 +1,6 @@
 :root {
-    --color_p0_0: #2090F5; /* Blue */
-    --color_p0_1: #B89865; /* Gold */
+    --color_p0_0: #ffffff; /* Blue */
+    --color_p0_1: #083347; /* Gold */
     --color_p0_2: #F5B346; /* Yellow */
     --color_p1_0: #6483A0; /* Steel Blue */
     --color_p1_1: #756C5D; /* Brown */
@@ -29,10 +29,28 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .header h1 {
     margin: 0;
+    font-size: calc(1 * min(12vh, 24vw)); /* Set font size to 80% of the smaller dimension (height or width) */
+    font-weight: 900;
+    background: url('../images/img_Decor_00.jpg') no-repeat; /* Use the image as a texture */
+    background-size: cover; /* Ensure the image covers the text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    white-space: nowrap; /* Turn off word wrap */
+    max-width: 100%; /* Prevent text from extending beyond the bounds of the header space */
+    max-height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-content {
@@ -44,15 +62,14 @@ html, body {
 }
 
 .particle-effect-block {
-    width: 25%; /* 3/12 width of the main section */
+    width: 16.67%; /* 2/12 width of the main section */
     height: 100%; /* Full height of the main section */
-    background-color: red;
+    background-color: var(--color_p0_1); /* Set background color to p0_1 */
     position: absolute;
     left: 0;
     top: 0;
     z-index: 1;
-    will-change: clip-path, box-shadow;
-    box-shadow: inset 0 0 150px rgba(0, 0, 0, 1); /* Inward shadow */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 1); /* Inward shadow */
 }
 
 #particleCanvas {
@@ -65,13 +82,49 @@ html, body {
     pointer-events: none; /* Ensure it doesn't interfere with interactions */
 }
 
-
-.text-container {
-    margin-left: 25%;
-    width: 75%;
+.content {
+    margin-left: 16.67%; /* Adjust margin to match the particle effect block width */
+    margin-right: 16.67%; /* Add right margin */
+    margin-top: calc(83.33vh / 12 / 2); /* Add top margin */
+    margin-bottom: calc(83.33vh / 12 / 2); /* Add bottom margin */
+    width: 66.66%; /* Adjust width to match the remaining space */
     display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: flex-start; /* Align children to the top */
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem; /* Add some space between the profile and the link */
+}
+
+.profile-text {
+    width: 50%;
+}
+
+.profile-space {
+    width: 0.5rem; /* Small width for spacing */
+}
+
+.profile-text-left {
+    text-align: right;/* Ensure the text is right aligned */
+    font-weight: 700;
+    color: var(--color_p0_1); /* Set color to p0_1 */
+}
+
+.profile-text-right {
+    text-align: left;
+    font-weight: lighter;
+    color: var(--color_p0_2); /* Set color to p0_2 */
+}
+
+h2 {
+    font-size: calc(1.5rem + 2vw); /* Increase the text size responsively */
+    margin: 0; /* Remove default margin */
 }
 
 .page-link {
