@@ -1,0 +1,74 @@
+:root {
+    /* ...existing code... */
+}
+
+html, body {
+    /* ...existing code... */
+}
+
+.container-fluid {
+    /* ...existing code... */
+}
+
+.header {
+    /* ...existing code... */
+}
+
+.header h1 {
+    /* ...existing code... */
+}
+
+.main-content {
+    /* ...existing code... */
+}
+
+.particle-effect-block {
+    /* ...existing code... */
+}
+
+#particleCanvas {
+    /* ...existing code... */
+}
+
+.content {
+    /* ...existing code... */
+}
+
+.profile {
+    /* ...existing code... */
+}
+
+.profile-text {
+    /* ...existing code... */
+}
+
+.profile-space {
+    /* ...existing code... */
+}
+
+.profile-text-left {
+    /* ...existing code... */
+}
+
+.profile-text-right {
+    /* ...existing code... */
+}
+
+h2 {
+    /* ...existing code... */
+}
+
+.welcome-message {
+    margin-top: 1rem; /* Add some space above the welcome message */
+    text-align: center; /* Center the welcome message */
+    font-size: 1.25rem; /* Set a larger font size for the welcome message */
+    color: var(--color_p1_2); /* Set the color for the welcome message */
+}
+
+.page-link {
+    /* ...existing code... */
+}
+
+.footer {
+    /* ...existing code... */
+}
