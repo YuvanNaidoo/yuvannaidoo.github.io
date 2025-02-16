@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
             window.history.replaceState({}, document.title, window.location.pathname);
 
             // Redirect to index page or user profile page
-            window.location.href = "index.html";
+            window.location.href = "https://yuvannaidoo.github.io/sites/theDiveClub/index.html";
         })();
     }
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Login failed: " + error.message);
         } else {
             alert("Login successful! Redirecting...");
-            window.location.href = "index.html";
+            window.location.href = "https://yuvannaidoo.github.io/sites/theDiveClub/index.html";
         }
     });
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const { data, error } = await supabaseClient.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: window.location.origin + "/index.html" // Change this to your desired page
+                redirectTo: "https://yuvannaidoo.github.io/sites/theDiveClub/index.html" // Change this to your desired page
             }
         });
     
