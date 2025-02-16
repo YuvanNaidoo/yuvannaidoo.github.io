@@ -3,32 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dive Club</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../css/styles.css">
+    <title>Welcome to The Dive Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-    <div class="container-fluid p-0">
-        <header class="header">
-            <h1>Welcome to The Dive Club</h1>
-        </header>
-        
-        <main class="main-content d-flex">
-            <div class="content">
-                <!-- Additional content can be added here -->
-            </div>
-        </main>
-        
-        <footer class="footer">
-            <p>&copy; 2025 My Portfolio</p>
-        </footer>
+    <div class="container">
+        <h1 id="welcome-message">Welcome to The Dive Club</h1>
+        <a href="loginSignUp.html" class="button" id="login-link">Login / Sign Up</a>
+        <button id="logout-btn" style="display: none;">Logout</button>
     </div>
-    
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="../../scripts/scripts.js"></script>
+    <script src="auth.js"></script> <!-- Ensure this runs on index page too -->
 </body>
 </html>
