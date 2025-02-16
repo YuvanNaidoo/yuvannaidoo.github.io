@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const { data, error } = await supabaseClient.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: "https://yuvannaidoo.github.io/sites/theDiveClub/index.html" // Change this to your desired page
+                redirectTo: `${window.location.origin}/sites/theDiveClub/index.html` // Change this to your desired page
             }
         });
     
