@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const { data: { user } } = await supabaseClient.auth.getUser();
         
         if (user) {
+            console.log(user);
             document.getElementById("welcome-message").textContent = `Welcome, ${user.email}`;
             document.getElementById("login-link").style.display = "none";
             document.getElementById("logout-btn").style.display = "block";
