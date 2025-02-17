@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() 
+{
     // Ensure Supabase is imported properly
     const { createClient } = supabase;
     
@@ -10,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const accessToken = urlParams.get("access_token");
 
     if (accessToken) {
-        (async () => {
+        (async function() {
             // Store the token in Supabase's session
             await supabaseClient.auth.setSession({
                 access_token: accessToken,
-                refresh_token: urlParams.get("refresh_token")
+                refresh_token: urlParams.get("refresh_token") 
             });
 
             // Remove token from URL for cleaner look
@@ -73,10 +74,24 @@ document.addEventListener("DOMContentLoaded", function() {
         checkUser();
         
         document.getElementById("logout-btn").addEventListener("click", async function() {
-            await supabaseClient.auth.signOut();
-            window.location.reload(); // Refresh page after logout
+            const { error } = await supabaseClient.auth.signOut();
+        
+            if (error) {
+                alert("Logout failed: " + error.message);
+                return;
+            }
+        
+            // Redirect to Google's logout URL
+            const googleLogoutUrl = "https://accounts.google.com/logout";
+            window.location.href = googleLogoutUrl;
+        
+            // After Google logout, redirect user back to your site
+            setTimeout(() => {
+                window.location.href = "https://yuvannaidoo.github.io/sites/theDiveClub/index.html"; // Change to your homepage
+            }, 1000); // Delay to ensure Google logout is processed
         });
-    }
+    }   
+    
 
     document.getElementById("google-login-btn").addEventListener("click", async function() {
         const { data, error } = await supabaseClient.auth.signInWithOAuth({
