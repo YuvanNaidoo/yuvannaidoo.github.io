@@ -68,6 +68,7 @@ async function getUserDetails(accessToken)
         console.error('Error fetching user details:', error.message);
     } else {
         console.error('User details:', data.user);
+        document.getElementById('UserAccountInfo').textContent = data.user.email;
     }
 }
 
@@ -79,7 +80,6 @@ async function checkForAccessTokenAndRedirect()
     {
         user = await getUserDetails(accessToken);
         console.error(user);
-        document.getElementById('UserAccountInfo').textContent = user.email;
     } else 
     {
         accessToken = new URLSearchParams(window.location.hash.substring(1)).get('access_token');
