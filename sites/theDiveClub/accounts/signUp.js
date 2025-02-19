@@ -90,7 +90,7 @@ async function checkForAccessTokenAndRedirect()
     }*/
 
     
-    const accessToken = new URLSearchParams(window.location.search).get('access_token');
+    var accessToken = new URLSearchParams(window.location.search).get('access_token');
     if (accessToken)
     {
         user = await getUserDetails(accessToken);
