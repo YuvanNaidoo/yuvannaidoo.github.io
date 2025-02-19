@@ -99,7 +99,7 @@ async function checkForAccessTokenAndRedirect()
     {
         accessToken = new URLSearchParams(window.location.hash.substring(1)).get('access_token');
         const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
-        window.locaccessTokenion.href = redirectUrl;
+        window.location.href = redirectUrl;
     }
 }
 
