@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form id="signupForm"></form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" ><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ><br><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ><br><br>
+        
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" ><br><br>
+        
+        <button type="button" id="submit_signup">Submit</button>
+    </form>
+    <button id="googleSignupButton">Sign Up with Google</button>
+
+    <script src="signUp.js"></script>
+</body>
+</html>
