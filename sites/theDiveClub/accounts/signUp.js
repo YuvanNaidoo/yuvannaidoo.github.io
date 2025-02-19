@@ -54,40 +54,26 @@ async function signInWithGoogle()
     }
 }
 
-
-
 // Call the function on page load
-document.addEventListener('DOMContentLoaded', checkForAccessTokenAndRedirect);
+document.addEventListener('DOMContentLoaded', getUserDetails);
 
 // Function to get user details using access token
 async function getUserDetails(accessToken) 
 {
-    const { data, error } = await supabase.auth.getUser(accessToken);
-
-    if (error) {
-        console.error('Error fetching user details:', error.message);
-    } else {
-        console.error('User details:', data.user);
-        document.getElementById('UserAccountInfo').textContent = data.user.email;
-    }
-}
-
-// Modify checkForAccessTokenAndRedirect function to get user details
-async function checkForAccessTokenAndRedirect() 
-{
-    var accessToken = new URLSearchParams(window.location.search).get('access_token');
+    var accessToken = localStorage.getItem('access_token');
     if (accessToken)
     {
-        user = await getUserDetails(accessToken);
-        console.error(user);
-    } else 
-    {
-        accessToken = new URLSearchParams(window.location.hash.substring(1)).get('access_token');
-        if (accessToken)
+        const supabaseAuthResponse = await supabase.auth.getUser(accessToken);
+
+        if (supabaseAuthResponse.error) 
         {
-            const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
-            window.location.href = redirectUrl;
+            console.error('Error fetching user details:', supabaseAuthResponse.error);
+        } else 
+        {
+            console.error('User details:', supabaseAuthResponse.data.user);
+            document.getElementById('UserAccountInfo').textContent = supabaseAuthResponse.data.user.email;
         }
     }
+    
 }
 
