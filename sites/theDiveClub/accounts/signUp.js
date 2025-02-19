@@ -55,16 +55,16 @@ async function signInWithGoogle()
 }
 
 // Call the function on page load
-document.addEventListener('DOMContentLoaded', getUserDetails);
+document.addEventListener('DOMContentLoaded', getUserDetails());
 
 // Function to get user details using access token
 async function getUserDetails() 
 {
     var accessToken = localStorage.getItem('access_token');
-    console.error('Access Token:', accessToken);
     if (accessToken)
     {
         const supabaseAuthResponse = await supabase.auth.getUser(accessToken);
+        console.error("Full Auth Response: ", supabaseAuthResponse);
 
         if (supabaseAuthResponse.error) 
         {
