@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', getUserDetails);
 async function getUserDetails() 
 {
     var accessToken = localStorage.getItem('access_token');
+    console.error('Access Token:', accessToken);
     if (accessToken)
     {
         const supabaseAuthResponse = await supabase.auth.getUser(accessToken);
