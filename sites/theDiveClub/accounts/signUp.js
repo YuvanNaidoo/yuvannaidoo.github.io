@@ -66,21 +66,23 @@ async function getUserDetails(accessToken) {
     if (error) {
         console.error('Error fetching user details:', error.message);
     } else {
-        console.log('User details:', data.user);
+        console.error('User details:', data.user);
     }
 }
 
 // Modify checkForAccessTokenAndRedirect function to get user details
 async function checkForAccessTokenAndRedirect() {
-    console.log('Checking for access token and redirecting');
+    console.error('Checking for access token and redirecting');
     const urlParams = new URLSearchParams(window.location.search);
     const accessToken = urlParams.get('access_token');
+    console.error(accessToken);
 
+    /*
     if (accessToken) {
         await getUserDetails(accessToken);
         const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
         //window.location.href = redirectUrl;
-        console.log(redirectUrl);
-    }
+        console.error(redirectUrl);
+    }*/
 }
 
