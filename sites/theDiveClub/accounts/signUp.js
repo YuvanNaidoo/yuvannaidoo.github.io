@@ -54,3 +54,34 @@ async function signInWithGoogle()
     }
 }
 
+
+
+// Call the function on page load
+document.addEventListener('DOMContentLoaded', checkForAccessTokenAndRedirect);
+
+// Function to get user details using access token
+async function getUserDetails(accessToken) {
+    const { data, error } = await supabase.auth.getUser(accessToken);
+
+    if (error) {
+        console.error('Error fetching user details:', error.message);
+    } else {
+        console.log('User details:', data.user);
+    }
+}
+
+// Modify checkForAccessTokenAndRedirect function to get user details
+async function checkForAccessTokenAndRedirect() {
+    console.log('Checking for access token and redirecting');
+    const urlParams = new URLSearchParams(window.location.search);
+    const accessToken = urlParams.get('access_token');
+
+    if (accessToken) {
+        await getUserDetails(accessToken);
+        const redirectUrl = `../sites/theDiveClub/index.html?access_token=${accessToken}`;
+        window.location.href = redirectUrl;
+    }
+
+    
+    console.log('Checking for access token and redirecting');
+}
