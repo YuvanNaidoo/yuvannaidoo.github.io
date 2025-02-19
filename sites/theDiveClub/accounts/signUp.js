@@ -73,13 +73,12 @@ async function getUserDetails(accessToken) {
 // Modify checkForAccessTokenAndRedirect function to get user details
 async function checkForAccessTokenAndRedirect() {
     console.error('Checking for access token and redirecting');
-    let accessToken = new URLSearchParams(window.location.hash.substring(1)).get('access_token');
-    if (!accessToken) {
-        accessToken = new URLSearchParams(window.location.search).get('access_token');
-    }
-    console.error(urlParams);
+    const urlParams_0 = new URLSearchParams(window.location.hash.substring(1));
+    const urlParams_1 = new URLSearchParams(window.location.search).get('access_token');
+    const accessToken = urlParams_0.get('access_token');
+    console.error("0: " + urlParams_0);
+    console.error("1: " + urlParams_1);
     console.error(accessToken);
-    
 
     if (accessToken) {
         await getUserDetails(accessToken);
