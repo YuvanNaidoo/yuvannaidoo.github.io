@@ -78,12 +78,10 @@ async function checkForAccessTokenAndRedirect() {
     console.error(urlParams);
     console.error(accessToken);
 
-    /*
     if (accessToken) {
         await getUserDetails(accessToken);
         const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
-        //window.location.href = redirectUrl;
-        console.error(redirectUrl);
-    }*/
+        window.location.href = redirectUrl;
+    }
 }
 
