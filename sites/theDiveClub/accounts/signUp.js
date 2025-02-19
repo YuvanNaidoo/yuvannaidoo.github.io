@@ -60,7 +60,8 @@ async function signInWithGoogle()
 document.addEventListener('DOMContentLoaded', checkForAccessTokenAndRedirect);
 
 // Function to get user details using access token
-async function getUserDetails(accessToken) {
+async function getUserDetails(accessToken) 
+{
     const { data, error } = await supabase.auth.getUser(accessToken);
 
     if (error) {
@@ -73,28 +74,12 @@ async function getUserDetails(accessToken) {
 // Modify checkForAccessTokenAndRedirect function to get user details
 async function checkForAccessTokenAndRedirect() 
 {
-    /*console.error('Checking for access token and redirecting');
-    const urlParams_0 = new URLSearchParams(window.location.hash.substring(1));
-    const urlParams_1 = new URLSearchParams(window.location.search).get('access_token');
-    const accessToken = urlParams_0.get('access_token');
-    console.error("0: " + urlParams_0);
-    console.error("1: " + urlParams_1);
-    console.error(accessToken);
-
-    if (accessToken) 
-    {
-        await getUserDetails(accessToken);
-        const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
-        //window.location.href = redirectUrl;        
-        console.error(redirectUrl);
-    }*/
-
-    
     var accessToken = new URLSearchParams(window.location.search).get('access_token');
     if (accessToken)
     {
         user = await getUserDetails(accessToken);
         console.error(user);
+        document.getElementById('UserAccountInfo').textContent = user.email;
     } else 
     {
         accessToken = new URLSearchParams(window.location.hash.substring(1)).get('access_token');
