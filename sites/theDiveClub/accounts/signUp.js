@@ -58,7 +58,7 @@ async function signInWithGoogle()
 document.addEventListener('DOMContentLoaded', getUserDetails);
 
 // Function to get user details using access token
-async function getUserDetails(accessToken) 
+async function getUserDetails() 
 {
     var accessToken = localStorage.getItem('access_token');
     if (accessToken)
