@@ -75,7 +75,8 @@ async function checkForAccessTokenAndRedirect() {
     console.error('Checking for access token and redirecting');
     const urlParams = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = urlParams.get('access_token');
-    console.error(urlParams, accessToken);
+    console.error(urlParams);
+    console.error(accessToken);
 
     /*
     if (accessToken) {
