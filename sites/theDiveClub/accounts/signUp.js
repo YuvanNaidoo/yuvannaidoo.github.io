@@ -78,7 +78,7 @@ async function checkForAccessTokenAndRedirect() {
 
     if (accessToken) {
         await getUserDetails(accessToken);
-        const redirectUrl = `../sites/theDiveClub/index.html?access_token=${accessToken}`;
+        const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
         window.location.href = redirectUrl;
     }
 
