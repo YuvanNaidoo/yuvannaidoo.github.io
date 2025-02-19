@@ -90,14 +90,14 @@ async function checkForAccessTokenAndRedirect()
     }*/
 
     
-    const accessToken = new URLSearchParams(window.locaccessTokenion.search).get('access_token');
+    const accessToken = new URLSearchParams(window.location.search).get('access_token');
     if (accessToken)
     {
         user = await getUserDetails(accessToken);
         console.error(user);
     } else 
     {
-        accessToken = new URLSearchParams(window.locaccessTokenion.hash.substring(1)).get('access_token');
+        accessToken = new URLSearchParams(window.location.hash.substring(1)).get('access_token');
         const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html?access_token=${accessToken}`;
         window.locaccessTokenion.href = redirectUrl;
     }
