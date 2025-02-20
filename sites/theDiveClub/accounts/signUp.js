@@ -43,14 +43,15 @@ async function signUpWithEmail(_email, _password)
 async function signInWithGoogle() 
 {
     console.log('Signing in with Google');
-    const userCredentials = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: '../sites/theDiveClub/index.html' } });
+    const credentials = { provider: 'google', options: { redirectTo: '../sites/theDiveClub/index.html' } };
+    const signInResponse = await supabase.auth.signInWithOAuth(credentials);
     
-    if (userCredentials.error)
+    if (signInResponse.error)
     {
-        console.error('Error signing in with Google:', userCredentials.error.message);
+        console.error('Error signing in with Google:', signInResponse.error.message);
     } else 
     {
-        console.log('User signed in with Google:', userCredentials.user, userCredentials.session);
+        console.log('User signed in with Google:', signInResponse.user, signInResponse.session);
     }
 }
 
