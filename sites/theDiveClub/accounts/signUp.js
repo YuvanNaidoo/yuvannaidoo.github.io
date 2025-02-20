@@ -64,17 +64,17 @@ async function getUserDetails()
     if (accessToken)
     {
         const supabaseAuthResponse = await supabase.auth.getUser(accessToken);
-        console.error("Full Auth Response: ", supabaseAuthResponse);
 
         if (supabaseAuthResponse.error) 
         {
             console.error('Error fetching user details:', supabaseAuthResponse.error);
         } else 
         {
-            console.error('User details:', supabaseAuthResponse.data.user);
-            document.getElementById('UserAccountInfo').textContent = supabaseAuthResponse.data.user.email;
+            localStorage.setItem('UserDetails', supabaseAuthResponse.data.user);
         }
-    }
-    
+    }    
 }
-
+//User details should only be loaded on all pages.
+//Sign in/up functions should be separated from the user details function (like the access token redirect)
+//Create a profile page
+//Profile picture functionality...
