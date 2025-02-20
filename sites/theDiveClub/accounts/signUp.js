@@ -78,3 +78,4 @@ async function getUserDetails()
 //Sign in/up functions should be separated from the user details function (like the access token redirect)
 //Create a profile page
 //Profile picture functionality...
+//Clear Out local storage on log out
