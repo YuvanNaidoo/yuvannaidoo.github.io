@@ -72,8 +72,9 @@ async function getUserDetails()
         } else 
         {
             localStorage.setItem('UserDetails', supabaseAuthResponse.data.user);
+            document.getElementById('UserAccountInfo').innerText = supabaseAuthResponse.data.user.email;
         }
-    }    
+    }  
 }
 //User details should only be loaded on all pages.
 //Sign in/up functions should be separated from the user details function (like the access token redirect)
