@@ -1,44 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => 
 {
-    testGet();
+    testAll();
 });
 
-async function testGet ()
+async function testAll ()
 {
-    const response = await supabase.from('tbl_teams').select();
-    console.log(response.data);
+    var tableNames = ['tbl_leagues', 'tbl_competitions', 'tbl_matches' , 'tbl_teams', 'tbl_players'];
+    var responses = [];
 
-    const response2 = await supabase.from('tbl_players').select();
-    console.log(response2.data);
-
-    var teamMembers = response.data[0].players;
-    var playerList = response2.data;
-
-    var output = response.data[0].name + "\n";
-    output += "Team Members: \n";
-
-    for (var i = 0; i < teamMembers.length; i++)
+    for (var i = 0; i < tableNames.length; i++)
     {
-        var tM = null;
-        var flag = false;
-        for (var j = 0; j < playerList.length; j++)
-        {
-            if (teamMembers[i] == playerList[j].id)
-            {
-                var p = playerList[j];
-                tM = p.name + " " + p.nickname + " " + p.surname;
-                flag = true;
-                break;
-            }
-        }
-        if (flag)
-        {
-            output += tM + "\n";
-        } else 
-        {
-            output += teamMembers[i] + ": Player not found.\n";
-        }  
+        responses[i] = await supabase.from(tableNames[i]).select();
+        console.log(responses[i].data);
     }
 
-    console.log(output);
+    var leagues = responses[0].data;
+    var competitions = responses[1].data;
+    var matches = responses[2].data;
+    var teams = responses[3].data;
+    var players = responses[4].data;
+
+    var outPut = "Leagues: \n";
+    for (var i = 0; i < leagues.length; i++)
+    {
+        outPut += leagues[i].name + "\n";
+        for (var j = 0; j < competitions.length; j++)
+        {
+            if (competitions[j].leagueID == leagues[i].id)
+            {
+                outPut += competitions[j].name + "\n" + "H | A" + "\n";
+                for (var k = 0; k < matches.length; k ++)
+                {
+                    if (matches[k].competitionID == competitions[j].id)
+                    {
+                        var m = matches[k];
+                        outPut += GetPlayerName(m.player_H, players) + " - " + m.result_H + ":" + m.result_A + " - " + GetPlayerName(m.player_A, players) + "\n";
+                    }
+                }
+            }
+        }
+    }   
+    
+    console.log(outPut);        
+}
+
+function GetPlayerName (id, allPlayers)
+{
+    for (var i = 0; i < allPlayers.length; i ++)
+    {
+        if (allPlayers[i].id == id)
+        {
+            return allPlayers[i].name;
+        }
+    }
 }
