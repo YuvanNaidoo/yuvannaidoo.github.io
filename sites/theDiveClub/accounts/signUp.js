@@ -38,44 +38,6 @@ async function signUpWithEmail(_email, _password)
         return signUpResponse.user;
     }
 }
-
-// Function to handle Google OAuth login
-async function signInWithGoogle() 
-{
-    console.log('Signing in with Google');
-    const credentials = { provider: 'google', options: { redirectTo: '../sites/theDiveClub/index.html' } };
-    const signInResponse = await supabase.auth.signInWithOAuth(credentials);
-    
-    if (signInResponse.error)
-    {
-        console.error('Error signing in with Google:', signInResponse.error.message);
-    } else 
-    {
-        console.log('User signed in with Google:', signInResponse.user, signInResponse.session);
-    }
-}
-
-// Call the function on page load
-document.addEventListener('DOMContentLoaded', getUserDetails());
-
-// Function to get user details using access token
-async function getUserDetails() 
-{
-    var accessToken = localStorage.getItem('access_token');
-    if (accessToken)
-    {
-        const supabaseAuthResponse = await supabase.auth.getUser(accessToken);
-
-        if (supabaseAuthResponse.error) 
-        {
-            console.error('Error fetching user details:', supabaseAuthResponse.error);
-        } else 
-        {
-            localStorage.setItem('UserDetails', supabaseAuthResponse.data.user);
-            document.getElementById('UserAccountInfo').innerText = supabaseAuthResponse.data.user.email;
-        }
-    }  
-}
 //User details should only be loaded on all pages.
 //Sign in/up functions should be separated from the user details function (like the access token redirect)
 //Create a profile page

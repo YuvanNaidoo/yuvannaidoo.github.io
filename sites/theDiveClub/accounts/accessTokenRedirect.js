@@ -8,7 +8,7 @@ function CheckForAccessTokenAndRedirect()
     if (accessToken)
     {
         localStorage.setItem('access_token', accessToken);
-        const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html`;
+        //const redirectUrl = `https://yuvannaidoo.github.io/sites/theDiveClub/index.html`;
         window.location.href = redirectUrl;
     }
 }
