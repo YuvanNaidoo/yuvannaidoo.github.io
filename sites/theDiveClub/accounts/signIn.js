@@ -44,8 +44,9 @@ async function signIn(_email, _password)
         console.error('Error signing in:', signInResponse.error.message);
     } else 
     {
-        console.log('User signed in:', signInResponse.data.user, signInResponse.session);
+        console.log('User signed in:', signInResponse.data, signInResponse.data.session);
         localStorage.setItem('userDetails', signInResponse.data.user.email);
+        localStorage.setItem('access_token', signInResponse.data.session.access_token);
 
         var outPut = localStorage.getItem('userDetails');
         console.log(outPut);
