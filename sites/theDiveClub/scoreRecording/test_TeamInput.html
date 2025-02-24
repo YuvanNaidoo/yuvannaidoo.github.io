@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Score Table</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input {
+            width: 90%;
+            text-align: center;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="scoreTable">
+        <thead>
+            <tr>
+                <th></th> <!-- Blank top-left cell -->
+                <th>Player A_A</th>
+                <th>Player B_A</th>
+                <th>Player C_A</th>
+                <th>Player D_A</th>
+                <th>Player E_A</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="player_A_H">Player A_H</th>
+                <td><input type="text" data-row="1" data-col="1"></td>
+                <td><input type="text" data-row="1" data-col="2"></td>
+                <td><input type="text" data-row="1" data-col="3"></td>
+                <td><input type="text" data-row="1" data-col="4"></td>
+                <td><input type="text" data-row="1" data-col="5"></td>
+            </tr>
+            <tr>
+                <th id="player_B_H">Player B_H</th>
+                <td><input type="text" data-row="2" data-col="1"></td>
+                <td><input type="text" data-row="2" data-col="2"></td>
+                <td><input type="text" data-row="2" data-col="3"></td>
+                <td><input type="text" data-row="2" data-col="4"></td>
+                <td><input type="text" data-row="2" data-col="5"></td>
+            </tr>
+            <tr>
+                <th id="player_C_H">Player C_H</th>
+                <td><input type="text" data-row="3" data-col="1"></td>
+                <td><input type="text" data-row="3" data-col="2"></td>
+                <td><input type="text" data-row="3" data-col="3"></td>
+                <td><input type="text" data-row="3" data-col="4"></td>
+                <td><input type="text" data-row="3" data-col="5"></td>
+            </tr>
+            <tr>
+                <th id="player_D_H">Player D_H</th>
+                <td><input type="text" data-row="4" data-col="1"></td>
+                <td><input type="text" data-row="4" data-col="2"></td>
+                <td><input type="text" data-row="4" data-col="3"></td>
+                <td><input type="text" data-row="4" data-col="4"></td>
+                <td><input type="text" data-row="4" data-col="5"></td>
+            </tr>
+            <tr>
+                <th id="player_E_H">Player E_H</th>
+                <td><input type="text" data-row="5" data-col="1"></td>
+                <td><input type="text" data-row="5" data-col="2"></td>
+                <td><input type="text" data-row="5" data-col="3"></td>
+                <td><input type="text" data-row="5" data-col="4"></td>
+                <td><input type="text" data-row="5" data-col="5"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="ConvertScoreSheetToMatches()">Convert Score Sheet to Matches</button>
+    <button onclick="updateCell(3,4, 'Updated Score')">Update Cell (3,4)</button>
+    <button onclick="getCell()">Get Cell</button>
+
+    <div>
+        <p id="round_1">Round 1</p>
+        <p id="round_2">Round 2</p>
+        <p id="round_3">Round 3</p>
+        <p id="round_4">Round 4</p>
+        <p id="round_5">Round 5</p>
+    </div>
+
+    <script>
+        // Function to read a cell value
+        function readCell(row, col) 
+        {
+            
+            var cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+            if (cell)
+            {
+                return cell.value;
+            } else 
+            {
+                return "";
+            }
+            //alert(`Cell (${row},${col}) contains: ` + (cell.value || "Empty"));
+        }
+
+        // Function to update a cell value
+        function updateCell(row, col, value) {
+            let cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+            if (cell) {
+                cell.value = value;
+                cell.style.backgroundColor = "lightyellow"; // Optional: highlight change
+            }
+        }
+
+        function getCell ()
+        {
+            var pH = document.querySelector(`#scoreTable th:nth-child(2)`).innerText;
+            var pA = document.querySelector(`#player_A_H`).innerText;
+            console.log(pH);
+            console.log(pA);
+        }
+
+        function ConvertScoreSheetToMatches ()
+        {
+            var roundText;
+            for (var i = 1; i < 6; i ++)
+            {
+                var roundText = "Round " + i + ":\n";
+                for (var j = 1; j < 6; j ++)
+                {
+                    var pH = document.querySelector(`#scoreTable th:nth-child(${j + 1})`).innerText;
+                    var pA = document.querySelector(`#scoreTable tr:nth-child(${i}) th`).innerText;
+                    
+                    roundText += "[" + pH + " vs " + pA + " : " + readCell(i, j) + "]\n";
+                }
+
+                document.getElementById("round_" + i).innerHTML = roundText;
+            }
+        }
+    </script>
+
+</body>
+</html>
