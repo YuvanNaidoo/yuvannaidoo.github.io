@@ -1,9 +1,3 @@
-// Initialize Supabase client
-const { createClient } = window.supabase;
-const supabaseUrl = 'https://mmvlwutnuouynukotdey.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1tdmx3dXRudW91eW51a290ZGV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2OTgyMzEsImV4cCI6MjA1NTI3NDIzMX0.qyEDq8w67G2BMfyHO7Iyvd3nFUSd0sulJhGl0eGkbfA';
-const supabase = createClient(supabaseUrl, supabaseKey);
-
 document.addEventListener('DOMContentLoaded', () => 
 {
     document.getElementById('btn_signIn').addEventListener('click', () => 
@@ -44,11 +38,8 @@ async function signIn(_email, _password)
         console.error('Error signing in:', signInResponse.error.message);
     } else 
     {
-        console.log('User signed in:', signInResponse.data, signInResponse.data.session);
-        localStorage.setItem('userDetails', signInResponse.data.user.email);
+        //DEBUGGING: console.log('User signed in:', signInResponse.data, signInResponse.data.session);
         localStorage.setItem('access_token', signInResponse.data.session.access_token);
-
-        var outPut = localStorage.getItem('userDetails');
-        console.log(outPut);
+        window.location.reload();
     }
 }

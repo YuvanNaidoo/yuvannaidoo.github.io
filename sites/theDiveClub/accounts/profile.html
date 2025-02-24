@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>Your User Profile @ The Dive Club</h1>
-    <h2 id="UserAccountInfo">You are not logged in.</h2>
     <div>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
@@ -21,7 +20,32 @@
     <button id = "btn_signIn">Sign In</button>
     
     <button id="btn_googleSignIn">Sign In with Google</button>
+    
+    <h2 id="UserAccountInfo">You are not logged in.</h2>
+    <div>
+        <p id="playerID">Player ID: </p>
+    </div>
+    <div>
+        <p id="phoneNumber">Phone Number: </p>
+    </div>
+    <div>
+        <p id="nickname">Nickname: </p>
+    </div>
+    <div>
+        <p id="teams">Teams: </p>
+    </div>
+    <div>
+        <p id="leagues">Leagues: </p>
+    </div>
+    <div>
+        <p id="competitions">Competitions: </p>
+    </div>
+    <div>
+        <p id="matches">Matches: </p>
+    </div>
+    
+    <script src="../supaBase_client.js"></script>
     <script src="../accounts/signIn.js"></script>
-    <script src="../accounts/accessTokenGetUserDetails.js"></script>
+    <script src="../accounts/loadProfile.js"></script>
 </body>
 </html>
