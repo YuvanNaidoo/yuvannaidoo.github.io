@@ -53,12 +53,13 @@ function GetPlayerData (_user)
     var playerID;
     for (var i = 0; i < players.data.length; i ++)
     {
-        if (players.data[i].username == _user)
+        if (players.data[i].username && players.data[i].username == _user)
         {
             playerID = players.data[i].id;
             break;
         }
     }
+    console.log(_user, playerID);
 
     //Get all matches for player
     var playerMatches = [];
