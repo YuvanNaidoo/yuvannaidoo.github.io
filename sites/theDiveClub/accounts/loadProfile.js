@@ -130,6 +130,9 @@ function GetPlayerData (_user)
     document.getElementById('matches').innerText = outMatches;
     document.getElementById('competitions').innerText = outCompetitions;
     document.getElementById('leagues').innerText = outLeagues;
+
+    var player = GetObjectByID(playerID, players);
+    document.getElementById('playerName').innerText = player.name + " " + player.surname + " (" + player.nickname + ")";
 }
 
 function GetObjectByID (id, array)
