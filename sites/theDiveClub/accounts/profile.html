@@ -7,41 +7,51 @@
     <!-- Import Supabase resources via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="stylesheet" href="../styleSheet.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="banner">
-        <img class="img_banner" src="../resources/Img_Banner_TEMP.jpeg" alt="Img_Banner">
+    <div class="header">
+        <h1>HEADER</h1>
     </div>
 
-    <div class="content">
-        <div class="profilePicture">
-            <img class="img_profilePicture" src="../resources/Img_ProfilePicture_TEMP.jpeg" alt="Img_ProfilePicture">
+    <div class="content"></div>
+        <p>CONTENT</p>
+        <div class="teams"></div>
+            <div class="card-content"></div>
+                <div class="card"></div>
+                    <p>Card 1 Content</p>
+                </div>
+                <div class="card"></div>
+                    <p>Card 2 Content</p>
+                </div>
+                <div class="card"></div>
+                    <p>Card 3 Content</p>
+                </div>
+            </div>
+            <style>
+                .card-content {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .card {
+                    flex: 1;
+                    margin: 0 8px;
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    padding: 16px;
+                    border-radius: 8px;
+                }
+            </style>
         </div>
-
-        <div class="card">
-            <h3 id="playerName" style="text-align: center;">Name</h3>
-            <p>This is a profile card with a shadow.</p>
-        </div>
-
-        <style>
-            .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            padding: 16px;
-            background-color: white;
-            border-radius: 5px;
-            width: 16%; /* 1/12 of the window width */
-            left: 20vw;
-            }
-
-            .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-            }
-        </style>
     </div>
     
     <script src="../supaBase_client.js"></script>
     <script src="../accounts/signIn.js"></script>
     <script src="../accounts/loadProfile.js"></script>
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

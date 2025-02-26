@@ -4,43 +4,40 @@ body {
     margin: 0%;
 }
 
-.banner {
-    width: 100vw;
-    height: 20vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h1 {
+    margin: 0%;
+    font-family: 'Segoe UI Heavy', sans-serif;
+    font-weight: 900;
+    position: absolute; 
+    bottom: 4%; 
+    width: 100%;
+    font-size: xxx-large;
 }
 
-.img_banner {
-    object-fit: cover;
+.header {
+    height: auto;
+    position: relative;
+    top: 0;
     width: 100%;
-    height: 100%;
+    z-index: 1000;
+    margin: 0%;
+    padding: 4%;
+    background-color: rgb(44, 44, 44);
 }
 
 .content {
-    margin-left: 10vw;
-    margin-right: 10vw;
-    height: 80vh;
-}
-    
-.profilePicture {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: calc(20vh - 10vh); /* 10vh is half of the height to center it */
-    left: 0;
-    margin-left: 10vw; /* Align with the parent's left margin */
+    height: auto;
+    background-color: rgb(99, 99, 99);
+    position: relative;
+    top: 0%;
+    padding: 2%;
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
-.img_profilePicture {
+.teams {
+    background-color: aqua;
+    position: relative;
+    height: auto;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }

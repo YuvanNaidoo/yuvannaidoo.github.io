@@ -106,7 +106,7 @@ function OutputCompetitionToScoreSheet (comp)
         {
             const emptyCell = document.createElement('td');
             const select = document.createElement('select');
-            const options = ['-', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'Z'];
+            const options = ['-', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'Z', 'X'];
             options.forEach(optionValue => {
                 const option = document.createElement('option');
                 option.value = optionValue;
