@@ -25,6 +25,8 @@ async function PopulateProfile()
 
     CreateTeamsButtons(playerProfile.teams);
     CreateMatchesButtons(playerProfile.matches);
+
+    document.getElementById('loginStatus').innerText = playerProfile.username;
 }
 
 async function getUsername() 
