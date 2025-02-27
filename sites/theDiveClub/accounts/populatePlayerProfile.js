@@ -44,6 +44,8 @@ async function getUsername()
             username = supabaseAuthResponse.data.user.email;
             return username;
         }
+    } else {
+        document.getElementById('loginStatus').innerText = "Not Logged In";
     }
 }
 
