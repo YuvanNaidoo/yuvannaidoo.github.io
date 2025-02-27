@@ -43,6 +43,11 @@ async function GetAllDataFromDB()
     teams = await supabase.from('tbl_teams').select();
     players = await supabase.from('tbl_players').select();
 
+    matches = await supabase
+        .from('tbl_matches')
+        .select()
+        .or(`player_H.eq.${playerID},player_A.eq.${playerID}`);
+
     return true;
 }
 

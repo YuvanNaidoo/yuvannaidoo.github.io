@@ -6,9 +6,10 @@
     <title>Profile</title>
     <!-- Import Supabase resources via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link rel="stylesheet" href="../styleSheet.css">
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styleSheet.css">
 </head>
 <body>
     <div class="jumbotron text-center" style="margin-bottom:0">
@@ -17,41 +18,83 @@
       </div>
 
     <div class-"container-fluid">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div style="background-color: aqua;">
+                    <h2>Profile</h2>
+                    <p>Resize the browser window to see the effect.</p>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        
         <div class="row">            
-            <div class="col-sm-1" style="background-color: grey;"></div>
+            <div class="col-sm-1"></div>
             <div class="col-sm-5">
-                <div class="card" style="border-radius: 15px;">
-                    <div class="card-header" style="background-color: lightsalmon; border-top-left-radius: 15px; border-top-right-radius: 15px;">Heading</div>
-                    <div class="card-body" style="background-color: lightcoral;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card" style="border-radius: 15px; max-height: 50vh;">
+                    <h5 class="card-title">Card title</h5>
+                    <div class="list-group" id="dynamicButtonList" style="height: 100%; overflow-y: scroll;">
+                        <!-- Buttons will be added here dynamically using JavaScript -->
+                        <button type="button" class="list-group-item list-group-item-action" style="max-height: 10vh;">
+                            <div class = "row" style="max-height: 10vh;">
+                                <div class = "col-2" style="padding: 0%;">
+                                    <img src="../resources/Img_ProfilePicture_TEMP.jpeg" alt="Image description" style="max-height: 80%; max-width: 100%; border-radius: 50%; box-shadow: 0 0px 12px rgba(0, 0, 0, 1); display: block; margin: auto;">
+                                </div>
+                                <div class = "col-10" style="padding-left: 4%;">
+                                    <p class="d-flex align-items-center" style="height: 100%;">TEXT</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action" style="max-height: 10vh;">
+                            <div class = "row" style="max-height: 10vh;">
+                                <div class = "col-2" style="padding: 0%;">
+                                    <img src="../resources/Img_ProfilePicture_TEMP.jpeg" alt="Image description" style="max-height: 80%; max-width: 100%; border-radius: 50%; box-shadow: 0 0px 12px rgba(0, 0, 0, 1); display: block; margin: auto;">
+                                </div>
+                                <div class = "col-10" style="padding-left: 4%; ">
+                                    <p class="d-flex align-items-center">TEXT - Line</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
                     </div>
                     <div class="card-footer" style="background-color: lightsalmon; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Footer</div>
                 </div>
             </div>
             <div class="col-sm-5">
                 <div class="card" style="border-radius: 15px; max-height: 50vh;">
-                    <div class="card-header" style="background-color: lightsalmon; border-top-left-radius: 15px; border-top-right-radius: 15px;">Teams</div>
-                    <div class="list-group" id="dynamicButtonList" style="height: 100%; overflow-y: scroll;">
+                    <h5 class="card-title">TEAMS</h5>
+                    <div class="list-group" id="player_Teams" style="height: 100%; overflow-y: scroll;">
                         <!-- Buttons will be added here dynamically using JavaScript -->
-                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
-                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
-                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
-                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
-                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
-                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
                         <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
                     </div>
                     <div class="card-footer" style="background-color: lightsalmon; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Footer</div>
                 </div>
             </div>
-            <div class="col-sm-1" style="background-color: grey;"></div>
+            <div class="col-sm-1"></div>
         </div>
         <div class="row">            
             <div class="col-sm-1" style="background-color: grey;"></div>
-            <div class="col-sm-5" style="background-color: aqua;">col 5</div>
-            <div class="col-sm-5" style="background-color: aquamarine;">col 5</div>
+            <div class="col-sm-5" style="background-color: aqua;">
+                <div class="card" style="border-radius: 15px; max-height: 50vh;">
+                    <h5 class="card-title">Card title</h5>
+                    <div class="list-group" id="player_Matches" style="height: 100%; overflow-y: scroll;">
+                        <!-- Buttons will be added here dynamically using JavaScript -->
+                        <button type="button" class="list-group-item list-group-item-action">Dummy Button</button>
+                    </div>
+                    <div class="card-footer" style="background-color: lightsalmon; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Footer</div>
+                </div>
+            </div>
+            <div class="col-sm-5" style="background-color: aquamarine;">
+                <div class="card" style="border-radius: 15px;">
+                    <h5 class="card-title">Card title</h5>
+                    <div class="card-body" style="background-color: lightcoral;">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <div class="card-footer" style="background-color: lightsalmon; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Footer</div>
+                </div>
+            </div>
             <div class="col-sm-1" style="background-color: grey;"></div>
         </div>
 
@@ -73,8 +116,7 @@
     </div>
     
     <script src="../supaBase_client.js"></script>
-    <script src="../accounts/signIn.js"></script>
-    <script src="../accounts/loadProfile.js"></script>
+    <script src="../accounts/populatePlayerProfile.js"></script>
     <!-- Bootstrap JS (Optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

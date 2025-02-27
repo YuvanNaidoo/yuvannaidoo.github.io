@@ -40,6 +40,6 @@ async function signIn(_email, _password)
     {
         //DEBUGGING: console.log('User signed in:', signInResponse.data, signInResponse.data.session);
         localStorage.setItem('access_token', signInResponse.data.session.access_token);
-        window.location.reload();
+        window.location.href = '../accounts/profile.html';
     }
 }

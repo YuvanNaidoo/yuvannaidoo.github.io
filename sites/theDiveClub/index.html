@@ -6,14 +6,60 @@
     <title>The Dive Club</title>
     <!-- Import Supabase resources via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    
+    <!-- Bootstrap CSS -->     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theDiveClub/styleSheet.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to The Dive Club</h1>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Welcome to the Dive Club</h1>
+        <p>Resize this responsive page to see the effect!</p> 
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1"></div>              
+        <div class="col-sm-10">
+            <div style="background-color: aqua;">
+                <div class="row">
+                    <div class="col-10">
+                        <p>Login Status</p>
+                    </div>
+                    <div class="col-2">
+                        <button id="btn_signIn">Sign Up / Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
     <h2 id="UserAccountInfo">You are not logged in.</h2>
     <button onclick="location.href='accounts/signUp.html'">Sign Up</button>
     <button onclick="location.href='accounts/profile.html'">Sign In / Profile</button>
+
+    <div class="row">
+        <div class="col-sm-1"></div>              
+        <div class="col-sm-10">
+            <ul class="pagination">
+                <li style="padding: 2%;"><a href="#">Sign In</a></li>
+                <li style="padding: 2%;"><a href="#">Sign In With Google</a></li>
+                <li style="padding: 2%;"><a href="#">Sign Up</a></li>
+                <li style="padding: 2%;"><a href="#">Profile</a></li>
+                <li style="padding: 2%;"><a href="#">5</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+
     <script src="../theDiveClub/supaBase_client.js"></script>
     <script src="../theDiveClub/accounts/accessTokenGetUserDetails.js"></script>
     <script src="../theDiveClub/accounts/signIn.js"></script>
+    
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () =>
         signUpWithEmail(email, password);
     });
 
-    document.getElementById('googleSignupButton').addEventListener('click', () => 
+    /*document.getElementById('googleSignupButton').addEventListener('click', () => 
     {
         signInWithGoogle();
-    });
+    });*/
 });
 
 // Function to handle user sign up via manual entry of email and password
