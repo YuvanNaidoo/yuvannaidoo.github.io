@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () =>
 async function signInWithGoogle() 
 {
     console.log('Signing in with Google');
-    const credentials = { provider: 'google', options: { redirectTo: '../sites/theDiveClub/index.html' } };
+    //const credentials = { provider: 'google', options: { redirectTo: '../sites/theDiveClub/index.html' } };
+    const credentials = { provider: 'google', options: { redirectTo: '../index.html' } };
     const signInResponse = await supabase.auth.signInWithOAuth(credentials);
     
     if (signInResponse.error)
