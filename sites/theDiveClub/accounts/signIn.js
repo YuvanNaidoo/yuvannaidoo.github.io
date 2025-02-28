@@ -17,8 +17,20 @@ document.addEventListener('DOMContentLoaded', () =>
             signInWithGoogle();
         });
     } 
-    
+
+    if (document.getElementById('btn_forgotPassword'))
+    {
+        document.getElementById('btn_signUp').addEventListener('click', () => 
+        {
+            forgotPassword(document.getElementById('username').value);
+        });
+    }    
 });
+
+async function forgotPassword(_email)
+{
+    let { data, error } = await supabase.auth.resetPasswordForEmail(email)
+}
 
 // Function to handle Google OAuth login
 async function signInWithGoogle() 

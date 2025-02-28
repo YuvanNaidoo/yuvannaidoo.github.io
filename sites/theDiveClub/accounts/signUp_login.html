@@ -20,59 +20,42 @@
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
-                <div>
+                <form id="signInForm">
                     <label for="username" class="p">Username:</label>
                     <input type="text" id="username" name="username" class="form-control"><br>
                     
                     <label for="password" class="p">Password:</label>
                     <input type="password" id="password" name="password" class="form-control"><br>
                     
-                    <button type="button" id="btn_signIn" class="btn btn-primary" style="margin-top: 2%;">Sign In</button>
+                    <button type="button" id="btn_signIn" class="btn btn-primary">Sign In</button>
                     <a href="forgotPassword.html" class="btn btn-link" style="font-size: small;">Forgot Password?</a>
 
-                    <button type="button" id="btn_googleSignIn" class="btn btn-primary" style="margin-top: 2%;">Sign In with Google</button>
-                </div>
+                    <button type="button" id="btn_googleSignIn" class="btn btn-primary">Sign In with Google</button>
+                </form>
             </div>
             <div class="col-sm-4">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" class="form-control"><br>
+                <form id="signupForm"></form>
+                    <label for="username" class="p">Username:</label>
+                    <input type="text" id="signUp_username" name="username" ><br><br>
                     
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" class="form-control"><br>
+                    <label for="password" class="p">Password:</label>
+                    <input type="password" id="signUp_password" name="password" ><br><br>
                     
-                    <button type="button" id="btn_signIn" class="btn btn-primary">Submit</button>
-                </div>
+                    <button type="button" id="submit_signup" class="btn btn-primary">Sign Up</button>
+                    <p id="signUpStatus" class="p">Sign-Up Status: </p>
+                </form>
             </div>
             <div class="col-sm-2"></div>
         </div>
     </div>  
 
-    <!--
-    <form id="signupForm"></form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" ><br><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" ><br><br>
-        
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" ><br><br>
-        
-        <label for="surname">Surname:</label>
-        <input type="text" id="surname" name="surname" ><br><br>
-        
-        <button type="button" id="submit_signup">Submit</button>
-    </form>
+    
+    
     <button id="googleSignupButton">Sign Up with Google</button>
-    -->
-
-
     
     <script src="../supaBase_client.js"></script>
-    <script src="signUp.js"></script>
+    <script src="../accounts/signUp.js"></script>
     <script src="../accounts/signIn.js"></script>
-    <script src="../accounts/loadProfile.js"></script>
     <!-- Bootstrap JS (Optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
