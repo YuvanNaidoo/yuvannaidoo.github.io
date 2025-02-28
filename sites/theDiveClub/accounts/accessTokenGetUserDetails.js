@@ -17,5 +17,7 @@ async function getUserDetails()
             localStorage.setItem('UserDetails', supabaseAuthResponse.data.user);
             document.getElementById('UserAccountInfo').innerText = supabaseAuthResponse.data.user.email;
         }
-    }  
+    } else {
+        console.log('No access token found');
+    } 
 }

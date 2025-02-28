@@ -18,9 +18,23 @@
 
     <div class-"container-fluid">
         <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <div style="background-color: rgb(160, 160, 160);">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <div>
+                    <label for="username" class="p">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control"><br>
+                    
+                    <label for="password" class="p">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control"><br>
+                    
+                    <button type="button" id="btn_signIn" class="btn btn-primary" style="margin-top: 2%;">Sign In</button>
+                    <a href="forgotPassword.html" class="btn btn-link" style="font-size: small;">Forgot Password?</a>
+
+                    <button type="button" id="btn_googleSignIn" class="btn btn-primary" style="margin-top: 2%;">Sign In with Google</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div>
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" class="form-control"><br>
                     
@@ -30,7 +44,7 @@
                     <button type="button" id="btn_signIn" class="btn btn-primary">Submit</button>
                 </div>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-2"></div>
         </div>
     </div>  
 
