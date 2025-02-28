@@ -1,23 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => 
 {
-    document.getElementById('btn_signIn').addEventListener('click', () => 
+    if (document.getElementById('btn_signIn'))
     {
-        const email = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        signIn(email, password);
-    });
-
-    document.getElementById('btn_googleSignIn').addEventListener('click', () => 
+        document.getElementById('btn_signIn').addEventListener('click', () => 
+        {
+            const email = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            signIn(email, password);
+        });   
+    }
+    
+    if (document.getElementById('btn_googleSignIn'))
     {
-        signInWithGoogle();
-    });
+        document.getElementById('btn_googleSignIn').addEventListener('click', () => 
+        {
+            signInWithGoogle();
+        });
+    } 
+    
 });
 
 // Function to handle Google OAuth login
 async function signInWithGoogle() 
 {
     console.log('Signing in with Google');
-    //const credentials = { provider: 'google', options: { redirectTo: '../sites/theDiveClub/index.html' } };
     const credentials = { provider: 'google', options: { redirectTo: '../index.html' } };
     const signInResponse = await supabase.auth.signInWithOAuth(credentials);
     

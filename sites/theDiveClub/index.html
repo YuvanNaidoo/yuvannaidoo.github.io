@@ -20,42 +20,42 @@
     <div class="row">
         <div class="col-sm-1"></div>              
         <div class="col-sm-10">
-            <div style="background-color: aqua;">
+            <div>
                 <div class="row">
-                    <div class="col-10">
-                        <p>Login Status</p>
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <p style="text-align: right; color: #ffffff;">Login Status</p>
                     </div>
-                    <div class="col-2">
-                        <button id="btn_signIn">Sign Up / Login</button>
+                    <div class="col-4">
+                        <button type="button" id="btn_signUp_login" class="btn btn-primary" onclick="location.href='accounts/signUp_login.html'">Sign Up / Login</button>                        
+                        <button type="button" id="btn_googleSignIn" class="btn btn-primary">Sign In with Google</button>
                     </div>
+                    <div class="col-2"></div>
                 </div>
             </div>
         </div>
         <div class="col-sm-1"></div>
     </div>
 
-    <h2 id="UserAccountInfo">You are not logged in.</h2>
-    <button onclick="location.href='accounts/signUp.html'">Sign Up</button>
-    <button onclick="location.href='accounts/profile.html'">Sign In / Profile</button>
-
-    <div class="row">
-        <div class="col-sm-1"></div>              
+    <div class="row" >
+        <div class="col-sm-1"></div>
         <div class="col-sm-10">
-            <ul class="pagination">
-                <li style="padding: 2%;"><a href="#">Sign In</a></li>
-                <li style="padding: 2%;"><a href="#">Sign In With Google</a></li>
-                <li style="padding: 2%;"><a href="#">Sign Up</a></li>
-                <li style="padding: 2%;"><a href="#">Profile</a></li>
-                <li style="padding: 2%;"><a href="#">5</a></li>
-            </ul>
+            <div class="row">
+                <div class="col-6">
+                    <img src="../theDiveClub/resources/Img_ProfilePicture_TEMP.jpeg" alt="PP" style="max-height: 20vh; max-width: 100%; border-radius: 50%; box-shadow: 0 0px 24px rgba(0, 0, 0, 1); display: block; margin-left: auto;">
+                </div>
+                <div class="col-6">
+                    <h2 style="text-align: left; color: #ffffff;">"YUVAN NAIDOO"</p>
+                    <button id="btn_logout" class="btn btn-primary" style="float: left;">Logout</button>
+                </div>                
+            </div>
         </div>
         <div class="col-sm-1"></div>
     </div>
 
 
     <script src="../theDiveClub/supaBase_client.js"></script>
-    <script src="../theDiveClub/accounts/accessTokenGetUserDetails.js"></script>
-    <script src="../theDiveClub/accounts/signIn.js"></script>
+    <script src="../theDiveClub/accounts/signIn.js"></script> 
     
     <!-- Bootstrap JS (Optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
