@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
     if (document.getElementById('btn_forgotPassword'))
     {
-        document.getElementById('btn_signUp').addEventListener('click', () => 
+        document.getElementById('btn_forgotPassword').addEventListener('click', () => 
         {
             forgotPassword(document.getElementById('username').value);
         });
@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () =>
 
 async function forgotPassword(_email)
 {
-    let { data, error } = await supabase.auth.resetPasswordForEmail(email)
+    var response = await supabase.auth.resetPasswordForEmail(_email);
+    console.log(response);
 }
 
 // Function to handle Google OAuth login
@@ -62,3 +63,7 @@ async function signIn(_email, _password)
         window.location.href = '../accounts/profile.html';
     }
 }
+
+//Confirmation email
+//Imaigine422&
+//Test Reset Password
