@@ -1,10 +1,10 @@
 /*
-Assume: Every Competition has a specified format.
+Assume: Every tournament has a specified format.
 Every format will require a different form of input.
 Think: Round Robin Vs Knockout
 */
 
-var allPlayers, allTeams, allLeagues, allCompetitions, allMatches;
+var allPlayers, allTeams, allLeagues, alltournaments, allMatches;
 
 document.addEventListener('DOMContentLoaded', () => 
 {
@@ -16,21 +16,21 @@ async function PopulateAllData ()
     allPlayers = await GetData('tbl_players');
     allTeams = await GetData('tbl_teams');
     allLeagues = await GetData('tbl_leagues');
-    allCompetitions = await GetData('tbl_competitions');
+    alltournaments = await GetData('tbl_tournaments');
     allMatches = await GetData('tbl_matches');
 
 
-    var newCompetition = competition_TeamRoundRobin(allCompetitions[0], allTeams[0], allTeams[1]);
+    var newtournament = tournament_TeamRoundRobin(alltournaments[0], allTeams[0], allTeams[1]);
 
-    console.log(newCompetition.competition);
-    console.log(newCompetition.teams);
-    console.log(newCompetition.matches);
+    console.log(newtournament.tournament);
+    console.log(newtournament.teams);
+    console.log(newtournament.matches);
 
-    OutputCompetitionToScoreSheet(newCompetition);
-    OutputCompetitionToMatches(newCompetition);
+    OutputtournamentToScoreSheet(newtournament);
+    OutputtournamentToMatches(newtournament);
 }
 
-//0. Define data structures for competition types.
+//0. Define data structures for tournament types.
 
 //Get Data from Supabase
 async function GetData (_table)
@@ -51,9 +51,9 @@ function GetObjectByID (_id, _array)
 }
 
 //Team-based Round Robin
-function competition_TeamRoundRobin (_competition, _team_Home, _team_Away)
+function tournament_TeamRoundRobin (_tournament, _team_Home, _team_Away)
 {
-    this.competition = _competition;
+    this.tournament = _tournament;
     this.teams = [_team_Home, _team_Away];
     this.matches = [];
 
@@ -64,7 +64,7 @@ function competition_TeamRoundRobin (_competition, _team_Home, _team_Away)
         {
             var newMatch = 
             {
-                competitionID: this.competition.id,
+                tournamentID: this.tournament.id,
                 player_h: GetObjectByID(this.teams[0].players[i], allPlayers),
                 player_A: GetObjectByID(this.teams[1].players[j], allPlayers),
                 result_H: null,
@@ -79,7 +79,7 @@ function competition_TeamRoundRobin (_competition, _team_Home, _team_Away)
     return this;
 }
 
-function OutputCompetitionToScoreSheet (comp)
+function OutputtournamentToScoreSheet (comp)
 {
     //Populate Away Team Players in Header Row
     const headerRow = document.getElementById('scoreSheet_headerRow');
@@ -129,7 +129,7 @@ function OutputCompetitionToScoreSheet (comp)
     });
 }
 
-function OutputCompetitionToMatches (comp)
+function OutputtournamentToMatches (comp)
 {
     const tableBody = document.getElementById('matches_tableBody');
 

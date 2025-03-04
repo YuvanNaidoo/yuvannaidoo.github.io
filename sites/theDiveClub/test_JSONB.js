@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
 async function testAll ()
 {
-    var tableNames = ['tbl_leagues', 'tbl_competitions', 'tbl_matches' , 'tbl_teams', 'tbl_players'];
+    var tableNames = ['tbl_leagues', 'tbl_tournaments', 'tbl_matches' , 'tbl_teams', 'tbl_players'];
     var responses = [];
 
     for (var i = 0; i < tableNames.length; i++)
@@ -15,7 +15,7 @@ async function testAll ()
     }
 
     var leagues = responses[0].data;
-    var competitions = responses[1].data;
+    var tournaments = responses[1].data;
     var matches = responses[2].data;
     var teams = responses[3].data;
     var players = responses[4].data;
@@ -24,14 +24,14 @@ async function testAll ()
     for (var i = 0; i < leagues.length; i++)
     {
         outPut += leagues[i].name + "\n";
-        for (var j = 0; j < competitions.length; j++)
+        for (var j = 0; j < tournaments.length; j++)
         {
-            if (competitions[j].leagueID == leagues[i].id)
+            if (tournaments[j].leagueID == leagues[i].id)
             {
-                outPut += competitions[j].name + "\n" + "H | A" + "\n";
+                outPut += tournaments[j].name + "\n" + "H | A" + "\n";
                 for (var k = 0; k < matches.length; k ++)
                 {
-                    if (matches[k].competitionID == competitions[j].id)
+                    if (matches[k].tournamentID == tournaments[j].id)
                     {
                         var m = matches[k];
                         outPut += GetPlayerName(m.player_H, players) + " - " + m.result_H + ":" + m.result_A + " - " + GetPlayerName(m.player_A, players) + "\n";

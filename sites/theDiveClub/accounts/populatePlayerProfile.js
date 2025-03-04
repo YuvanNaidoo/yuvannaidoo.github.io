@@ -14,8 +14,8 @@ async function PopulateProfile()
     playerProfile.credentials = await getPlayerInfo(playerProfile.username);
     playerProfile.id = playerProfile.credentials.id;
     playerProfile.matches = await getPlayerMatches(playerProfile.id);
-    playerProfile.competitions = await getCompetitions(playerProfile.matches);
-    playerProfile.leagues = await getLeagues(playerProfile.competitions);
+    playerProfile.tournaments = await gettournaments(playerProfile.matches);
+    playerProfile.leagues = await getLeagues(playerProfile.tournaments);
     playerProfile.teams = await getTeams(playerProfile.id);
 
     console.log(playerProfile);
@@ -73,43 +73,43 @@ async function getPlayerMatches(_id)
     return response.data;
 }
 
-async function getCompetitions(_matches)
+async function gettournaments(_matches)
 {
-    var competitionIDs = [];
-    var competitions = [];
+    var tournamentIDs = [];
+    var tournaments = [];
 
     for (var i = 0; i < _matches.length; i++)
     {
-        if (_matches[i].competitionID)
+        if (_matches[i].tournamentID)
         {
-            if (!competitionIDs.includes(_matches[i].competitionID))
+            if (!tournamentIDs.includes(_matches[i].tournamentID))
             {
-                competitionIDs.push(_matches[i].competitionID);
+                tournamentIDs.push(_matches[i].tournamentID);
             }
         }        
     }
 
-    for (var i = 0; i < competitionIDs.length; i++)
+    for (var i = 0; i < tournamentIDs.length; i++)
     {
-        var response = await supabase.from('tbl_competitions').select().eq('id', competitionIDs[i]);
-        competitions.push(response.data[0]);
+        var response = await supabase.from('tbl_tournaments').select().eq('id', tournamentIDs[i]);
+        tournaments.push(response.data[0]);
     }
 
-    return competitions;
+    return tournaments;
 }
 
-async function getLeagues (_competitions)
+async function getLeagues (_tournaments)
 {
     var leagueIDs = [];
     var leagues = [];
 
-    for (var i = 0; i < _competitions.length; i++)
+    for (var i = 0; i < _tournaments.length; i++)
     {
-        if (_competitions[i].leagueID)
+        if (_tournaments[i].leagueID)
         {
-            if (!leagueIDs.includes(_competitions[i].leagueID))
+            if (!leagueIDs.includes(_tournaments[i].leagueID))
             {
-                leagueIDs.push(_competitions[i].leagueID);
+                leagueIDs.push(_tournaments[i].leagueID);
             }
         }        
     }
@@ -245,7 +245,7 @@ function CreatePlayerProfileElement(playerProfile) {
     profileClone.querySelector('.id').innerText = playerProfile.id;
     profileClone.querySelector('.teams').innerText = playerProfile.teams.map(team => team.name).join(', ');
     profileClone.querySelector('.matches').innerText = playerProfile.matches.length;
-    profileClone.querySelector('.competitions').innerText = playerProfile.competitions.map(comp => comp.name).join(', ');
+    profileClone.querySelector('.tournaments').innerText = playerProfile.tournaments.map(comp => comp.name).join(', ');
     profileClone.querySelector('.leagues').innerText = playerProfile.leagues.map(league => league.name).join(', ');
 
     document.getElementById('profilesContainer').appendChild(profileClone);
