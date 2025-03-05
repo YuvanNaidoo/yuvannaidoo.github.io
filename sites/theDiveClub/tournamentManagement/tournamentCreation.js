@@ -22,21 +22,85 @@
 
 document.addEventListener('DOMContentLoaded', () => 
 {
-    document.getElementById('submit_newTournament').addEventListener('click', () => 
+    if (checkLoginStatus())
     {
-        const nT_name = document.getElementById('txt_nT_name').value;
-        const nT_date = document.getElementById('txt_nT_date').value;
-        const nT_time = document.getElementById('txt_nT_time').value;
-        const nT_location = document.getElementById('txt_nT_location').value;
-        //txt_nT_coordinatorID comes from auth token after login
-        const nT_coordinatorID = "ed3c5f68-9e79-4166-afdd-6c55697ed840";
-        const nT_maxEntries = document.getElementById('txt_nT_maxEntries').value;
-        const nT_description = document.getElementById('txt_nT_description').value;
-
-
-        SubmitNewTournament(nT_name, nT_date, nT_time, nT_location, nT_coordinatorID, nT_maxEntries, nT_description);
-    });
+        document.getElementById('submit_newTournament').addEventListener('click', () => 
+        {
+            var fullName = userDetails.name + " " + userDetails.surname;
+            CreateTournament(userDetails.id, fullName);
+        });
+    } else 
+    {
+        window.location.href = "../accounts/signIn.html";
+    }    
 });
+
+
+
+//Check if user is logged in...............
+var userDetails;
+
+async function checkLoginStatus()
+{
+    var loggedIn = false;
+    userDetails = await getUserDetails();
+    console.log(userDetails);
+
+    document.getElementById('txt_nT_coordinatorID').textContent = "ID: " + userDetails.id;
+    document.getElementById('txt_nT_coordinatorName').textContent = userDetails.name + " " + userDetails.surname;
+
+    if (userDetails)
+    {
+        loggedIn = true;
+    }
+    return loggedIn;
+}
+
+async function getUserDetails() 
+{
+    var accessToken = localStorage.getItem('access_token');
+    if (accessToken)
+    {
+        const supabaseAuthResponse = await supabase.auth.getUser(accessToken);
+
+        if (supabaseAuthResponse.error) 
+        {
+            console.error('Access Token found. Error fetching user details:', supabaseAuthResponse.error);
+        } else 
+        {
+            const playerProfile = await supabase.from('tbl_players').select().eq('username', supabaseAuthResponse.data.user.email);
+
+            const userDetails = 
+            {
+                name: playerProfile.data[0].name,
+                surname: playerProfile.data[0].surname,
+                id: playerProfile.data[0].id,
+                username: playerProfile.data[0].username
+            }
+            
+            
+
+            return userDetails;
+        }
+    } else {
+        document.getElementById('loginStatus').innerText = "Not Logged In";
+    }
+}
+
+function CreateTournament (_id, _fullName)
+{
+    const nT_name = document.getElementById('txt_nT_name').value;
+    const nT_date = document.getElementById('txt_nT_date').value;
+    const nT_time = document.getElementById('txt_nT_time').value;
+    const nT_location = document.getElementById('txt_nT_location').value;
+    //txt_nT_coordinatorID comes from auth token after login
+    const nT_coordinatorID = userDetails.id;    
+    const nT_maxEntries = document.getElementById('txt_nT_maxEntries').value;
+    const nT_description = document.getElementById('txt_nT_description').value;
+
+    var newTournamentID = SubmitNewTournament(nT_name, nT_date, nT_time, nT_location, nT_coordinatorID, nT_maxEntries, nT_description);
+    return newTournamentID;
+}
 
 async function SubmitNewTournament (_name, _date, _time, _location, _coordinatorID, _maxEntries, _description)
 {
@@ -59,8 +123,13 @@ async function SubmitNewTournament (_name, _date, _time, _location, _coordinator
         return null;
     } else 
     {
-        console.log('New tournament created');
-        console.log(response.data);
-        return response.data;
+        console.log('New tournament created', response.data);
+        document.getElementById('txt_nT_id').innerText = response.data[0].id;
+
+        var tournamentEntryLink = "yuvannaidoo.github.io/sites/theDiveClub/tournamentManagement/entry.html?tournamentID=" + response.data[0].id;
+        document.getElementById('txt_nT_link').innerText = tournamentEntryLink;
+
+        var tournamentID = response.data[0].id;
+        return tournamentID;
     }
 }

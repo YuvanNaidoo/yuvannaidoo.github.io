@@ -18,12 +18,12 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <div class="card" id="card_newTournament">
-                <div class="card-header">Create a Tournament</div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="card rounded" id="card_newTournament">
+                <div class="card-header p">Create a Tournament</div>
 
-                <div class="card-body">
+                <div class="card-body p">
                     <h5 class="card-title">
                         <div class="row">
                             <div class="col-4">
@@ -92,10 +92,18 @@
 
                     <p class="card-text">Join us for the upcoming diving tournament. Make sure to register in advance!</p>
                     <a href="#" class="btn btn-primary" id="submit_newTournament">Register Now</a>
+
+                    <div class="card rounded">
+                        <div class="card-header p">New Tournament Details</div>
+                        <div class="card-title p" id="txt_nT_id">ID: </div>
+                        <div class="card-body p">
+                            <p id="txt_nT_link">Link: </p>
+                        </div>
+                    </div>                 
                 </div>
             </div>
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-2"></div>
     </div>
 
     <script src="../supaBase_client.js"></script>

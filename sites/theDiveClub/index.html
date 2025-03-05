@@ -16,40 +16,58 @@
         <h1>Welcome to the Dive Club</h1>
         <p>Resize this responsive page to see the effect!</p> 
     </div>
-
-    <div class="row" id="row_UserAnonymous">
-        <div class="col-sm-1"></div>              
-        <div class="col-sm-10">
-            <div>
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-4">
-                        <button type="button" id="btn_signUp_login" class="btn btn-primary float-end" onclick="location.href='accounts/signUp_login.html'" style="margin: 1%;">Sign Up / Login</button> 
+    <div class="card" style="border-radius: 15px; max-height: 50vh;">
+        <div class="row" id="row_UserAnonymous">
+            <div class="col-sm-1"></div>              
+            <div class="col-sm-10">
+                <div>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <button type="button" id="btn_signUp_login" class="btn btn-primary float-end" onclick="location.href='accounts/signUp_login.html'" style="margin: 1%;">Sign Up / Login</button> 
+                        </div>
+                        <div class="col-4">                                               
+                            <button type="button" id="btn_googleSignIn" class="btn btn-primary" style="margin: 1%;">Sign In with Google</button>
+                        </div>
+                        <div class="col-2"></div>
                     </div>
-                    <div class="col-4">                                               
-                        <button type="button" id="btn_googleSignIn" class="btn btn-primary" style="margin: 1%;">Sign In with Google</button>
-                    </div>
-                    <div class="col-2"></div>
                 </div>
             </div>
+            <div class="col-sm-1"></div>
         </div>
-        <div class="col-sm-1"></div>
+
+        <div class="row" id="row_UserLoggedIn">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="../theDiveClub/resources/Img_ProfilePicture_TEMP.jpeg" alt="PP" style="max-height: 20vh; max-width: 100%; border-radius: 50%; box-shadow: 0 0px 24px rgba(0, 0, 0, 1); display: block; margin-left: auto;">
+                    </div>
+                    <div class="col-6">
+                        <h2 style="text-align: left; color: #ffffff;">"YUVAN NAIDOO"</p>
+                        <button id="btn_logout" class="btn btn-primary" style="float: left; margin: 1%;">Logout</button>
+                    </div>                
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <div class="row" id="row_UserLoggedIn">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
     </div>
 
-    <div class="row" id="row_UserLoggedIn">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-            <div class="row">
-                <div class="col-6">
-                    <img src="../theDiveClub/resources/Img_ProfilePicture_TEMP.jpeg" alt="PP" style="max-height: 20vh; max-width: 100%; border-radius: 50%; box-shadow: 0 0px 24px rgba(0, 0, 0, 1); display: block; margin-left: auto;">
-                </div>
-                <div class="col-6">
-                    <h2 style="text-align: left; color: #ffffff;">"YUVAN NAIDOO"</p>
-                    <button id="btn_logout" class="btn btn-primary" style="float: left; margin: 1%;">Logout</button>
-                </div>                
-            </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col text-center">
+            <button type="button" class="btn btn-secondary" onclick="location.href='../theDiveClub/tournamentManagement/coordination.html'">Tournament Management</button>
+            <button type="button" class="btn btn-secondary">Button 2</button>
+            <button type="button" class="btn btn-secondary">Button 3</button>
+            <button type="button" class="btn btn-secondary">Button 4</button>
         </div>
-        <div class="col-sm-1"></div>
     </div>
 
     <script src="../theDiveClub/supaBase_client.js"></script>
