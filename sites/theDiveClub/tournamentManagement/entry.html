@@ -27,17 +27,91 @@
                     <h5 class="card-title">
                         <div class="row">
                             <div class="col-4">
-                                <label for="txt_nT_name" class="form-label d-flex align-items-center" style="height: 100%;">Tournament Name:</label>
+                                <label for="txt_T_name" class="form-label d-flex align-items-center" style="height: 100%;">Tournament Name:</label>
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control" id="txt_nT_name" placeholder="Tournament Name">
+                                <p id="txt_T_name">Tournament Date</p>
                             </div>
                         </div>
                     </h5>
 
-                    
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="txt_T_date" class="form-label d-flex align-items-center" style="height: 100%;">Date:</label>
+                        </div>
+                        <div class="col-8">
+                            <p id="txt_T_date">Tournament Date</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="txt_T_time" class="form-label d-flex align-items-center" style="height: 100%;">Time:</label>
+                        </div>
+                        <div class="col-8">
+                            <p id="txt_T_time">Tournament Time</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="txt_T_location" class="form-label d-flex align-items-center" style="height: 100%;">Location:</label>
+                        </div>
+                        <div class="col-8">
+                            <p id="txt_T_location">Tournament Location</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="search_bar" class="form-label d-flex align-items-center" style="height: 100%;">Tournament Co-ordinator:</label>
+                        </div>
+                        <div class="col-8">
+                            <p id="txt_T_coordinatorName">"Name"</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="txt_T_maxEntries" class="form-label d-flex align-items-center" style="height: 100%;">Max. Entries:</label>
+                        </div>
+                        <div class="col-8">
+                            <p id="txt_T_maxEntries">Max. Entries</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="txt_T_description" class="form-label d-flex align-items-center" style="height: 100%;">Description, Info, Special Rules, etc.:</label>
+                        </div>
+                        <div class="col-8">
+                            <p id="txt_T_description">Tournament Description</p>
+                        </div>
+                    </div>
 
                     <p class="card-text">Join us for the upcoming diving tournament. Make sure to register in advance!</p>
+
+                    <div class="card rounded">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <form id="signInForm">
+                                    <label for="username" class="p">Username:</label>
+                                    <input type="text" id="signIn_username" name="username" class="form-control"><br>
+                                    
+                                    <label for="password" class="p">Password:</label>
+                                    <input type="password" id="signIn_password" name="password" class="form-control"><br>
+                                    
+                                    <button type="button" id="submit_signIn" class="btn btn-primary" style="margin: 1%;">Sign In</button>
+                                    <a id="btn_forgotPassword" class="btn btn-link" style="font-size: small; margin: 1%;">Forgot Password?</a>
+                
+                                    <button type="button" id="btn_googleSignIn" class="btn btn-primary" style="margin: 1%;">Sign In with Google</button>
+                                </form>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+
                     <a href="#" class="btn btn-primary" id="submit_newTournament">Register Now</a>             
                 </div>
             </div>
